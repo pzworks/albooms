@@ -3,9 +3,9 @@ import {NavigationContainer} from "@react-navigation/native";
 import {createDrawerNavigator} from "@react-navigation/drawer";
 import AlbumList from "../screens/AlbumList";
 import {Platform} from "react-native";
+import {mainColor} from "../styles/common";
 
 const Drawer = createDrawerNavigator()
-export const mainColor = '#ee8a3f';
 const DrawerNavigator = () => {
   return (
     <Drawer.Navigator
@@ -22,7 +22,7 @@ const DrawerNavigator = () => {
       backBehavior={'history'}
     >
       <Drawer.Screen
-        name='Lista albumów'
+        name='Albums list'
         component={AlbumList}
       />
     </Drawer.Navigator>

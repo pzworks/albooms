@@ -1,6 +1,6 @@
 export class Album {
   public id: string
-  public name: string
+  public title: string
 
   constructor(init: Partial<Album> = {}) {
     Object.assign(this, init)

@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react"
-import {SafeAreaView, View, Text, ScrollView, FlatList} from "react-native";
+import React, {useEffect} from "react"
+import {FlatList} from "react-native";
 import {useDispatch, useSelector} from "react-redux";
 import {Album, StoreState} from "../model/entities";
 import {fetchAlbums} from "../store/album/action";
@@ -12,13 +12,12 @@ const AlbumList = props => {
   }, [dispatch])
 
   const albums: Album[] = useSelector((state: StoreState) => state.album.albums)
-  console.log(albums.length)
 
   return (
     <FlatList
       data={albums}
-      keyExtractor={item => item.id}
-      renderItem={itemData => <SingleAlbum album={itemData.item} />}
+      keyExtractor={(item, index) => item.id}
+      renderItem={itemData => <SingleAlbum key={itemData.item.id} album={itemData.item} />}
     />
   )
 

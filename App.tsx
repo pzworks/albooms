@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
 import { Provider } from 'react-redux';
-import {StyleSheet} from 'react-native';
 import {AppNavigator} from "./navigation/appNavigator";
 import configureStore from "./store/store";
 
@@ -14,12 +13,3 @@ export default function App() {
     </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

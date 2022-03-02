@@ -1,14 +1,18 @@
 import {Album} from "../model/entities";
-import {Text, View} from "react-native";
+import {Text, TouchableNativeFeedback, View} from "react-native";
+import {albumStyles} from "../styles/albumStyles";
 
 const SingleAlbum = props => {
   const album: Album = props.album
 
   return (
-    <View>
-      <Text>{album.id}</Text>
-      <Text>{album.name}</Text>
-    </View>
+    <TouchableNativeFeedback>
+      <View style={albumStyles.album}>
+        <Text style={albumStyles.albumTitle}>ID: {album.id} </Text>
+        <Text style={albumStyles.albumTitle}>Title: {album.title}</Text>
+      </View>
+    </TouchableNativeFeedback>
+
   )
 }
 
