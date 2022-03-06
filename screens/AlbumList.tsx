@@ -5,7 +5,7 @@ import {Album, StoreState} from "../model/entities";
 import {fetchAlbums} from "../store/album/action";
 import SingleAlbum from "../components/singleAlbum";
 
-const AlbumList = props => {
+const AlbumList = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAlbums)
@@ -15,8 +15,8 @@ const AlbumList = props => {
 
   return (
     <FlatList
-      data={albums}
-      keyExtractor={(item, index) => item.id}
+      data={albums.slice(0, 10)}
+      keyExtractor={(item) => item.id}
       renderItem={itemData => <SingleAlbum key={itemData.item.id} album={itemData.item} />}
     />
   )
