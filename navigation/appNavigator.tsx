@@ -4,6 +4,7 @@ import {createDrawerNavigator} from "@react-navigation/drawer";
 import AlbumList from "../screens/AlbumList";
 import {Platform} from "react-native";
 import {mainColor} from "../styles/common";
+import AlbumDetails from "../screens/AlbumDetails";
 
 const Drawer = createDrawerNavigator()
 const DrawerNavigator = () => {
@@ -24,6 +25,10 @@ const DrawerNavigator = () => {
       <Drawer.Screen
         name='Albums list'
         component={AlbumList}
+      />
+      <Drawer.Screen
+        name='Albums details'
+        component={AlbumDetails}
       />
     </Drawer.Navigator>
   )
