@@ -5,6 +5,7 @@ import AlbumList from "../screens/AlbumList";
 import {Platform} from "react-native";
 import {mainColor} from "../styles/common";
 import AlbumDetails from "../screens/AlbumDetails";
+import AlbumForm from "../screens/AlbumForm";
 
 const Drawer = createDrawerNavigator()
 const DrawerNavigator = () => {
@@ -29,6 +30,12 @@ const DrawerNavigator = () => {
       <Drawer.Screen
         name='Albums details'
         component={AlbumDetails}
+        options={{drawerItemStyle: { display: 'none' }}}
+      />
+      <Drawer.Screen
+        name='Album form'
+        component={AlbumForm}
+        options={{drawerItemStyle: { display: 'none' }}}
       />
     </Drawer.Navigator>
   )

@@ -12,5 +12,20 @@ export const albumStyles = StyleSheet.create({
     borderColor: mainColor,
     padding: screenWidth/20,
     borderRadius: screenWidth/50,
+  },
+  addAlbumButton: {
+    width: screenWidth/2,
+    margin: 20,
+    marginBottom: 0,
+    textAlign: "center",
+    backgroundColor: mainColor,
+    padding: 8,
+    borderRadius: 5,
+    alignSelf: "center"
+  },
+  addAlbumButtonText: {
+    textAlign: "center",
+    fontWeight: 'bold',
+    color: '#fff',
   }
 })
