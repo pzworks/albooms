@@ -16,7 +16,6 @@ export const albumStyles = StyleSheet.create({
   addAlbumButton: {
     width: screenWidth/2,
     margin: 20,
-    marginBottom: 0,
     textAlign: "center",
     backgroundColor: mainColor,
     padding: 8,

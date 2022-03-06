@@ -30,6 +30,7 @@ const DrawerNavigator = () => {
       <Drawer.Screen
         name='Albums details'
         component={AlbumDetails}
+        initialParams={{ albumId: 'sxas' }}
         options={{drawerItemStyle: { display: 'none' }}}
       />
       <Drawer.Screen
