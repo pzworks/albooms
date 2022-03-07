@@ -1,5 +1,6 @@
 import {Album, AlbumStoreState} from "../../model/entities"
-import {ADD_ALBUM, EDIT_ALBUM, SET_ALBUMS} from "./action";
+import {ADD_ALBUM, EDIT_ALBUM, SET_ALBUMS, TOGGLE_FAVORITE_ALBUM} from "./action";
+import {act} from "react-dom/test-utils";
 
 const INITIAL_STATE: AlbumStoreState = {
   albums: []
@@ -23,6 +24,14 @@ const albumReducer = (state = INITIAL_STATE, action) => {
       const updatedAlbums = state.albums.map(album => album.id === payload.id ? payload : album)
 
       return {...state, albums: updatedAlbums}
+
+    case TOGGLE_FAVORITE_ALBUM:
+      const currentAlbum: Album = state.albums.find(album => album.id === action.payload)
+      const modifiedAlbum = {...currentAlbum, favorite: !currentAlbum.favorite}
+      const modifiedAlbums = state.albums.map(album => album.id === action.payload ? modifiedAlbum : album)
+      console.log('uu', action.payload, modifiedAlbum)
+
+      return {...state, albums: modifiedAlbums}
 
     default:
       return state

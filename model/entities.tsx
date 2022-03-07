@@ -1,7 +1,7 @@
 export class Album {
   public id: string
   public title: string
-  public favorite: string
+  public favorite: boolean = false
 
   constructor(init: Partial<Album> = {}) {
     Object.assign(this, init)
