@@ -26,5 +26,14 @@ export const albumStyles = StyleSheet.create({
     textAlign: "center",
     fontWeight: 'bold',
     color: '#fff',
+  },
+  input: {
+    alignSelf: "center",
+    padding: 7,
+    borderWidth: 1,
+    borderRadius: 7,
+    borderColor: mainColor,
+    margin: 10,
+    width: screenWidth/2
   }
 })

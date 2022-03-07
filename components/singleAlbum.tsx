@@ -3,9 +3,7 @@ import {albumStyles} from "../styles/albumStyles";
 import {Entypo} from "@expo/vector-icons";
 import {mainColor} from "../styles/common";
 
-const SingleAlbum = props => {
-  const { album, navigation } = props
-
+const SingleAlbum = ({album, navigation}) => {
   return (
     <View style={albumStyles.album}>
       <Pressable onPress={() => navigation.navigate('Album form', {album})}>
