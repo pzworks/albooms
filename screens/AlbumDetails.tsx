@@ -2,7 +2,7 @@ import React from "react";
 import {SafeAreaView, ScrollView, Text} from "react-native";
 
 const AlbumDetails = props => {
-  const { album } = props
+  const { album } = props.route.params
 
   return (
     <SafeAreaView>
