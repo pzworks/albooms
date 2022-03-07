@@ -11,7 +11,10 @@ const albumReducer = (state = INITIAL_STATE, action) => {
       return {...state, albums: action.payload}
 
     case ADD_ALBUM:
-      const albums = [action.payload, ...state.albums]
+      let maxId: number = Math.max.apply(Math, state.albums.map(function(album) { return album.id; }))
+      maxId++
+      const newAlbum = new Album({...action.payload, id: maxId})
+      const albums = [newAlbum, ...state.albums]
 
       return {...state, albums}
 
