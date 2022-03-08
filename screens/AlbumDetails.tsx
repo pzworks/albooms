@@ -3,6 +3,7 @@ import {SafeAreaView} from "react-native";
 import SingleAlbum from "../components/singleAlbum";
 import {useSelector} from "react-redux";
 import {Album, StoreState} from "../model/entities";
+import AlbumPhotos from "../components/AlbumPhotos";
 
 const AlbumDetails = ({route, navigation}) => {
   const {albumId} = route.params
@@ -10,7 +11,8 @@ const AlbumDetails = ({route, navigation}) => {
 
   return (
     <SafeAreaView style={{justifyContent: 'center', flex: 1}}>
-      {album && <SingleAlbum album={album} navigation={navigation}/>}
+      <SingleAlbum album={album} navigation={navigation}/>
+      <AlbumPhotos albumId={albumId} />
     </SafeAreaView>
   )
 }

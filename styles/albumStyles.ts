@@ -76,5 +76,12 @@ export const albumStyles = StyleSheet.create({
     height: screenHeight/4,
     padding: 20,
     margin: 50,
+  },
+  image: {
+    width: 150,
+    height: 150,
+    resizeMode: 'cover',
+    borderColor: mainColor,
+    borderWidth: 1
   }
 })

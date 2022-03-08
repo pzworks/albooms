@@ -1,8 +1,9 @@
 import {Album, AlbumStoreState} from "../../model/entities"
-import {ADD_ALBUM, EDIT_ALBUM, SET_ALBUMS, TOGGLE_FAVORITE_ALBUM} from "./action";
+import {ADD_ALBUM, EDIT_ALBUM, SET_ALBUMS, SET_PHOTOS, TOGGLE_FAVORITE_ALBUM} from "./action";
 
 const INITIAL_STATE: AlbumStoreState = {
-  albums: []
+  albums: [],
+  photos: []
 }
 
 const albumReducer = (state = INITIAL_STATE, action) => {
@@ -30,6 +31,11 @@ const albumReducer = (state = INITIAL_STATE, action) => {
       const modifiedAlbums = state.albums.map(album => album.id === action.payload ? modifiedAlbum : album)
 
       return {...state, albums: modifiedAlbums}
+
+    case SET_PHOTOS:
+      const photos = action.payload
+
+      return {...state, photos}
 
     default:
       return state

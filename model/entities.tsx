@@ -18,4 +18,17 @@ export class StoreState {
 
 export interface AlbumStoreState {
   albums: Album[]
+  photos: Photo[]
+}
+
+export class Photo {
+  albumId: string
+  id: string
+  title: string
+  url: string
+  thumbnailUrl: string
+
+  constructor(init: Partial<Photo> = {}) {
+    Object.assign(this, init)
+  }
 }
