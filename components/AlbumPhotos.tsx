@@ -7,7 +7,6 @@ import {albumStyles} from "../styles/albumStyles";
 const AlbumPhotos = ({albumId}) => {
   const dispatch = useDispatch()
   const photos = useSelector((state: StoreState) => state.album.photos).slice(0, 10)
-  console.log(photos)
 
   useEffect(() => {
     dispatch(fetchPhotos(albumId))
@@ -17,15 +16,15 @@ const AlbumPhotos = ({albumId}) => {
     <FlatList
       horizontal={true}
       data={photos}
-      renderItem={({item, index}) => { console.log(item); return (
-        <View>
+      renderItem={({item, index}) => <View>
           <Image
             key={index}
-            // source={{uri: item.thumbnailUrl, method: 'GET'}}
+            // source={{uri: item.thumbnailUrl, method: 'GET'}} //via.placeholder.com doesn't support HTTPS correctly,
+            // for testing purposes I replaced actual uri with working test image.
             source={{uri: `https://picsum.photos/200`, method: 'GET'}}
             style={albumStyles.image}
           />
-        </View>)}}
+        </View>}
     />
   )
 }
