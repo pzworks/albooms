@@ -1,12 +1,16 @@
-import React, {useEffect} from "react";
-import {FlatList, Image, View} from "react-native";
-import {useDispatch, useSelector} from "react-redux";
-import {StoreState} from "../model/entities";
-import {fetchPhotos} from "../store/album/action";
-import {albumStyles} from "../styles/albumStyles";
-const AlbumPhotos = ({albumId}) => {
+import React, { useEffect } from 'react'
+import { FlatList, Image, View } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
+import { StoreState } from '../model/entities'
+import { fetchPhotos } from '../store/album/action'
+import { albumStyles } from '../styles/albumStyles'
+
+const AlbumPhotos = ({ albumId }) => {
   const dispatch = useDispatch()
-  const photos = useSelector((state: StoreState) => state.album.photos).slice(0, 10)
+  const photos = useSelector((state: StoreState) => state.album.photos).slice(
+    0,
+    10
+  )
 
   useEffect(() => {
     dispatch(fetchPhotos(albumId))
@@ -16,15 +20,17 @@ const AlbumPhotos = ({albumId}) => {
     <FlatList
       horizontal={true}
       data={photos}
-      renderItem={({item, index}) => <View>
+      renderItem={({ item, index }) => (
+        <View>
           <Image
             key={index}
             // source={{uri: item.thumbnailUrl, method: 'GET'}} //via.placeholder.com doesn't support HTTPS correctly,
             // for testing purposes I replaced actual uri with working test image.
-            source={{uri: `https://picsum.photos/200`, method: 'GET'}}
+            source={{ uri: 'https://picsum.photos/200', method: 'GET' }}
             style={albumStyles.image}
           />
-        </View>}
+        </View>
+      )}
     />
   )
 }

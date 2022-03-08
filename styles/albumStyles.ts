@@ -1,81 +1,81 @@
-import { StyleSheet} from "react-native";
-import {mainColor, screenHeight, screenWidth} from "./common";
+import { StyleSheet } from 'react-native'
+import { mainColor, screenHeight, screenWidth } from './common'
 
 export const albumStyles = StyleSheet.create({
   albumTitle: {
     fontSize: 14,
-    textAlign: "center"
+    textAlign: 'center'
   },
   album: {
-    margin: screenWidth/10,
+    margin: screenWidth / 10,
     borderWidth: 1,
     borderColor: mainColor,
-    padding: screenWidth/20,
-    borderRadius: screenWidth/50,
+    padding: screenWidth / 20,
+    borderRadius: screenWidth / 50
   },
   favAlbum: {
-    margin: screenWidth/10,
+    margin: screenWidth / 10,
     borderWidth: 1,
     borderColor: '#0000ff',
-    padding: screenWidth/20,
-    borderRadius: screenWidth/50,
+    padding: screenWidth / 20,
+    borderRadius: screenWidth / 50
   },
   addAlbumButton: {
-    width: screenWidth/2,
+    width: screenWidth / 2,
     margin: 20,
-    textAlign: "center",
+    textAlign: 'center',
     backgroundColor: mainColor,
     padding: 8,
     borderRadius: 5,
-    alignSelf: "center"
+    alignSelf: 'center'
   },
   addAlbumButtonText: {
-    textAlign: "center",
+    textAlign: 'center',
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#fff'
   },
   input: {
-    alignSelf: "center",
+    alignSelf: 'center',
     padding: 7,
     borderWidth: 1,
     borderRadius: 7,
     borderColor: mainColor,
     margin: 10,
-    width: screenWidth/2
+    width: screenWidth / 2
   },
   invalidInput: {
-    alignSelf: "center",
+    alignSelf: 'center',
     padding: 7,
     borderWidth: 2,
     borderRadius: 7,
     borderColor: '#ff0000',
     margin: 10,
-    width: screenWidth/2
+    width: screenWidth / 2
   },
   detailsBox: {
     display: 'flex',
-    width: '80%',
+    width: '80%'
   },
   buttonsBox: {
     display: 'flex',
     width: '20%',
     flexDirection: 'column',
-    justifyContent: "space-between"
+    justifyContent: 'space-between'
   },
   detailsContainer: {
     display: 'flex',
     flexWrap: 'nowrap',
     flexDirection: 'row',
     width: '100%',
-    justifyContent: "space-evenly"
+    justifyContent: 'space-evenly'
   },
   modal: {
     display: 'flex',
     alignSelf: 'center',
-    width: screenWidth/2,
-    height: screenHeight/4,
+    width: screenWidth / 2,
+    height: screenHeight / 4,
     padding: 20,
-    margin: 50,
+    margin: 50
   },
   image: {
     width: 150,

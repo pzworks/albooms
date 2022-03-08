@@ -1,18 +1,18 @@
-import {applyMiddleware, combineReducers, createStore} from "redux";
+import { applyMiddleware, combineReducers, createStore } from 'redux'
 
-import albumReducer from "./album/reducer";
-import ReduxThunk from 'redux-thunk';
-import { composeWithDevTools } from 'remote-redux-devtools';
+import albumReducer from './album/reducer'
+import ReduxThunk from 'redux-thunk'
+import { composeWithDevTools } from 'remote-redux-devtools'
 
 const reducers = combineReducers({
-  album: albumReducer,
+  album: albumReducer
 })
 
 const enhance = composeWithDevTools({
   realtime: true,
   host: 'localhost',
   port: 8000
-});
+})
 
 const configureStore = () => {
   return createStore(reducers, enhance(applyMiddleware(ReduxThunk)))
