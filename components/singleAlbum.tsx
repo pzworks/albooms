@@ -14,24 +14,31 @@ const SingleAlbum = ({album, navigation}) => {
     dispatch(toggleFav(albumId))
   }
 
-  console.log(albumEntity)
-
   useEffect(() => {
     setAlbumEntity(album)
   }, [albumEntity, album])
 
   return (
     <View style={albumEntity.favorite ? albumStyles.favAlbum : albumStyles.album}>
-      <Pressable onPress={() => navigation.navigate('Album form', {album: albumEntity})}>
-        <Entypo name={'edit'} size={24} color={mainColor} style={{textAlign: 'right'}}/>
-      </Pressable>
-      <Pressable onPress={() => toggleFavorite(albumEntity.id)}>
-        <Entypo name={albumEntity.favorite ? 'star' : 'star-outlined'} size={24} color={mainColor} style={{textAlign: 'right'}}/>
-      </Pressable>
-      <Text style={albumStyles.albumTitle}>ID: {albumEntity.id} </Text>
-      <Pressable onPress={() => navigation.navigate('Albums details', {album: albumEntity})}>
-        <Text style={albumStyles.albumTitle}>Title: {albumEntity.title}</Text>
-      </Pressable>
+      <View style={albumStyles.detailsContainer}>
+        <View style={albumStyles.detailsBox}>
+          <Text style={{fontSize: 24, textAlign: 'center'}}>
+            Album
+          </Text>
+          <Text style={albumStyles.albumTitle}>ID: {albumEntity.id} </Text>
+          <Pressable onPress={() => navigation.navigate('Albums details', {album: albumEntity})}>
+            <Text style={albumStyles.albumTitle}>Title: {albumEntity.title}</Text>
+          </Pressable>
+        </View>
+        <View style={albumStyles.buttonsBox}>
+          <Pressable onPress={() => navigation.navigate('Album form', {album: albumEntity})}>
+            <Entypo name={'edit'} size={24} color={mainColor} style={{textAlign: 'right'}}/>
+          </Pressable>
+          <Pressable onPress={() => toggleFavorite(albumEntity.id)}>
+            <Entypo name={albumEntity.favorite ? 'star' : 'star-outlined'} size={24} color={mainColor} style={{textAlign: 'right'}}/>
+          </Pressable>
+        </View>
+      </View>
     </View>
 
   )

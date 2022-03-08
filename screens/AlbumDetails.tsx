@@ -1,15 +1,13 @@
 import React from "react";
-import {SafeAreaView, ScrollView, Text} from "react-native";
+import {SafeAreaView} from "react-native";
+import SingleAlbum from "../components/singleAlbum";
 
-const AlbumDetails = ({route}) => {
+const AlbumDetails = ({route, navigation}) => {
   const { album } = route.params
 
   return (
-    <SafeAreaView>
-      <ScrollView>
-        <Text>Title: {album.id}</Text>
-        <Text>Title: {album.title}</Text>
-      </ScrollView>
+    <SafeAreaView style={{justifyContent: 'center', flex: 1}}>
+      <SingleAlbum album={album} navigation={navigation}/>
     </SafeAreaView>
   )
 }

@@ -51,5 +51,22 @@ export const albumStyles = StyleSheet.create({
     borderColor: '#ff0000',
     margin: 10,
     width: screenWidth/2
+  },
+  detailsBox: {
+    display: 'flex',
+    width: '80%',
+  },
+  buttonsBox: {
+    display: 'flex',
+    width: '20%',
+    flexDirection: 'column',
+    justifyContent: "space-between"
+  },
+  detailsContainer: {
+    display: 'flex',
+    flexWrap: 'nowrap',
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: "space-evenly"
   }
 })
