@@ -38,7 +38,7 @@ const SingleAlbum = ({album, navigation}) => {
             Album
           </Text>
           <Text style={albumStyles.albumTitle}>ID: {albumEntity.id} </Text>
-          <Pressable onPress={() => navigation.navigate('Albums details', {album: albumEntity})}>
+          <Pressable onPress={() => navigation.navigate('Albums details', {albumId: albumEntity.id})}>
             <Text style={albumStyles.albumTitle}>Title: {albumEntity.title}</Text>
           </Pressable>
         </View>
