@@ -1,5 +1,5 @@
 import { StyleSheet} from "react-native";
-import { mainColor, screenWidth} from "./common";
+import {mainColor, screenHeight, screenWidth} from "./common";
 
 export const albumStyles = StyleSheet.create({
   albumTitle: {
@@ -68,5 +68,13 @@ export const albumStyles = StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
     justifyContent: "space-evenly"
+  },
+  modal: {
+    display: 'flex',
+    alignSelf: 'center',
+    width: screenWidth/2,
+    height: screenHeight/4,
+    padding: 20,
+    margin: 50,
   }
 })
