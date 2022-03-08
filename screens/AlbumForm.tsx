@@ -24,6 +24,8 @@ const AlbumForm = ({route, navigation}) => {
   useEffect(() => {
     if (route.params && 'album' in route.params) {
       setAlbum(route.params.album)
+    } else {
+      setAlbum(new Album())
     }
   }, [route.params])
 
