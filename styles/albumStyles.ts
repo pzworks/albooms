@@ -42,5 +42,14 @@ export const albumStyles = StyleSheet.create({
     borderColor: mainColor,
     margin: 10,
     width: screenWidth/2
+  },
+  invalidInput: {
+    alignSelf: "center",
+    padding: 7,
+    borderWidth: 2,
+    borderRadius: 7,
+    borderColor: '#ff0000',
+    margin: 10,
+    width: screenWidth/2
   }
 })

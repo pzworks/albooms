@@ -8,14 +8,19 @@ import {addAlbum, editAlbum} from "../store/album/action";
 const AlbumForm = ({route, navigation}) => {
   const dispatch = useDispatch()
   const [album, setAlbum] = useState(new Album())
-  const handleName = (name: string) => {
-    setAlbum({...album, title: name})
+  const [isValid, setIsValid] = useState(true)
+  const handleName = (title: string) => {
+    const regex = new RegExp(/^[a-z ][^0-9]*$/gmi)
+    setAlbum({...album, title})
+    setIsValid(regex.test(title))
   }
   const submit = () => {
-    if (album.id) {
-      dispatch(editAlbum(album))
-    } else {
-      dispatch(addAlbum(album))
+    if (isValid) {
+      if (album.id) {
+        dispatch(editAlbum(album))
+      } else {
+        dispatch(addAlbum(album))
+      }
     }
 
     navigation.navigate('Albums list')
@@ -32,8 +37,8 @@ const AlbumForm = ({route, navigation}) => {
   return (
     <View style={{flex: 1, justifyContent: 'center'}}>
       <Text style={{textAlign: 'center'}}>Album title:</Text>
-      <TextInput multiline={true} style={albumStyles.input} placeholder={'Album name'} value={album.title} onChangeText={handleName}/>
-      <Pressable style={albumStyles.addAlbumButton} onPress={submit}>
+      <TextInput multiline={true} style={isValid ? albumStyles.input : albumStyles.invalidInput} placeholder={'Album name'} value={album.title} onChangeText={handleName}/>
+      <Pressable disabled={!isValid} style={albumStyles.addAlbumButton} onPress={submit}>
         <Text style={albumStyles.addAlbumButtonText}>Save</Text>
       </Pressable>
     </View>
