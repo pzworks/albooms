@@ -1,11 +1,11 @@
-import { Alert, Pressable, Text, View } from 'react-native'
-import { albumStyles } from '../styles/albumStyles'
-import { Entypo } from '@expo/vector-icons'
-import { mainColor } from '../styles/common'
-import { useDispatch, useSelector } from 'react-redux'
-import { toggleFav } from '../store/album/action'
-import { useEffect, useState } from 'react'
-import { Album, StoreState } from '../model/entities'
+import {Alert, Pressable, Text, View} from 'react-native'
+import {albumStyles} from '../styles/albumStyles'
+import {Entypo} from '@expo/vector-icons'
+import {mainColor} from '../styles/common'
+import {useDispatch, useSelector} from 'react-redux'
+import {toggleFav} from '../store/album/action'
+import {useEffect, useState} from 'react'
+import {Album, StoreState} from '../model/entities'
 
 const SingleAlbum = ({ album, navigation }) => {
   const favoriteAlbums = useSelector((state: StoreState) => {
@@ -16,8 +16,8 @@ const SingleAlbum = ({ album, navigation }) => {
   const dispatch = useDispatch()
   const [albumEntity, setAlbumEntity]: [Album, any] = useState(new Album())
   const toggleFavorite = (albumId: string) => {
-    if (favoriteAlbums.length === 5 && !(albumId in favoriteAlbums)) {
-      Alert.alert('Congratulations!', "You've added 5 favs today!", [
+    if (favoriteAlbums.length === 5 && !(favoriteAlbums.includes(albumId))) {
+      Alert.alert('Congratulations!', 'You\'ve added 5 favs today!', [
         {
           text: 'Close',
           style: 'destructive'
