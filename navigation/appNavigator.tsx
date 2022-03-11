@@ -18,18 +18,22 @@ const DrawerNavigator = () => {
         headerTitleStyle: {
           color: Platform.OS === 'android' ? '#000' : mainColor
         },
-        headerTintColor: Platform.OS === 'android' ? '#000' : mainColor
+        headerTintColor:
+          Platform.OS === 'android' ? '#000' : mainColor
       }}
       backBehavior={'history'}
     >
-      <Drawer.Screen name='Albums list' component={Albums} />
       <Drawer.Screen
-        name='Albums details'
+        name="Albums list"
+        component={Albums}
+      />
+      <Drawer.Screen
+        name="Albums details"
         component={AlbumDetails}
         options={{ drawerItemStyle: { display: 'none' } }}
       />
       <Drawer.Screen
-        name='Album form'
+        name="Album form"
         component={AlbumForm}
         options={{ drawerItemStyle: { display: 'none' } }}
       />
@@ -37,7 +41,8 @@ const DrawerNavigator = () => {
   )
 }
 
-export const AppNavigator = props => {
+
+export const AppNavigator = () => {
   return (
     <NavigationContainer>
       <DrawerNavigator />

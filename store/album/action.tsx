@@ -7,7 +7,7 @@ export const ADD_ALBUM = 'album/add'
 export const TOGGLE_FAVORITE_ALBUM = 'album/toggle'
 export const SET_PHOTOS = 'album/photos'
 
-export const fetchAlbums = async dispatch => {
+export const fetchAlbums = async (dispatch: any) => {
   const albums = await AlbumApi.getAlbums().then(res => res.json())
   dispatch({ type: SET_ALBUMS, payload: albums })
 }
@@ -25,7 +25,7 @@ export const toggleFav = (albumId: string) => {
 }
 
 export const fetchPhotos = (albumId: string) => {
-  return async dispatch => {
+  return async (dispatch: any) => {
     const photos = await AlbumApi.getPhotos(albumId).then(res => res.json())
 
     dispatch({ type: SET_PHOTOS, payload: photos })

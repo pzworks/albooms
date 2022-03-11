@@ -10,7 +10,7 @@ const reducers = combineReducers({
 
 const enhance = composeWithDevTools({
   realtime: true,
-  host: 'localhost',
+  hostname: 'localhost',
   port: 8000
 })
 

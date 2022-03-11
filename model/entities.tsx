@@ -22,11 +22,11 @@ export interface AlbumStoreState {
 }
 
 export class Photo {
-  albumId: string
-  id: string
-  title: string
-  url: string
-  thumbnailUrl: string
+  public albumId: string
+  public id: string
+  public title: string
+  public url: string
+  public thumbnailUrl: string
 
   constructor(init: Partial<Photo> = {}) {
     Object.assign(this, init)

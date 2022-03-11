@@ -1,17 +1,18 @@
-import {Alert, Pressable, Text, View} from 'react-native'
-import {albumStyles} from '../styles/albumStyles'
-import {Entypo} from '@expo/vector-icons'
-import {mainColor} from '../styles/common'
-import {useDispatch, useSelector} from 'react-redux'
-import {toggleFav} from '../store/album/action'
-import {useEffect, useState} from 'react'
-import {Album, StoreState} from '../model/entities'
+import React, { useEffect, useState } from 'react'
+import { Alert, Pressable, Text, View } from 'react-native'
+import { albumStyles } from '../styles/albumStyles'
+import { Entypo } from '@expo/vector-icons'
+import { mainColor } from '../styles/common'
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleFav } from '../store/album/action'
+import { Album, StoreState } from '../model/entities'
 
+// @ts-ignore
 const SingleAlbum = ({ album, navigation }) => {
   const favoriteAlbums = useSelector((state: StoreState) => {
     return state.album.albums
-      .filter((album: Album) => album.favorite === true)
-      .map(album => album.id)
+      .filter((album: Album) => album.favorite)
+      .map((album: Album) => album.id)
   })
   const dispatch = useDispatch()
   const [albumEntity, setAlbumEntity]: [Album, any] = useState(new Album())

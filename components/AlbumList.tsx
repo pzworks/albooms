@@ -1,16 +1,17 @@
+import React from 'react'
 import SingleAlbum from './singleAlbum'
 import { FlatList } from 'react-native'
-import React from 'react'
 
+// @ts-ignore
 const AlbumList = ({ albums, navigation }) => {
   return (
     <FlatList
       data={albums}
       keyExtractor={item => item.id}
-      renderItem={itemData => (
+      renderItem={({ item }) => (
         <SingleAlbum
-          key={itemData.item.id}
-          album={itemData.item}
+          key={item.id}
+          album={item}
           navigation={navigation}
         />
       )}

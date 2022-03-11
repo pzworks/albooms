@@ -12,36 +12,37 @@ const INITIAL_STATE: AlbumStoreState = {
   photos: []
 }
 
-const albumReducer = (state = INITIAL_STATE, action) => {
+const albumReducer = (state = INITIAL_STATE, action: any) => {
   switch (action.type) {
-    case SET_ALBUMS:
-      return { ...state, albums: action.payload }
+  case SET_ALBUMS:
+    return { ...state, albums: action.payload }
 
-    case ADD_ALBUM:
-      let maxId: number = Math.max.apply(
-        Math,
-        state.albums.map(function (album) {
-          return album.id
-        })
-      )
-      maxId++
-      const newAlbum = new Album({ ...action.payload, id: maxId })
-      const albums = [newAlbum, ...state.albums]
+  case ADD_ALBUM:
+    // eslint-disable-next-line prefer-spread
+    let maxId: number = Math.max.apply(
+      Math,
+      state.albums.map(album => parseInt(album.id))
+    )
+    maxId++
+    const newAlbum = new Album({ ...action.payload, id: maxId })
+    const albums = [newAlbum, ...state.albums]
 
-      return { ...state, albums }
+    return { ...state, albums }
 
-    case EDIT_ALBUM:
-      const payload: Album = action.payload
-      const updatedAlbums = state.albums.map(album =>
-        album.id === payload.id ? payload : album
-      )
+  case EDIT_ALBUM:
+    const payload: Album = action.payload
+    const updatedAlbums = state.albums.map(album =>
+      album.id === payload.id ? payload : album
+    )
 
-      return { ...state, albums: updatedAlbums }
+    return { ...state, albums: updatedAlbums }
 
-    case TOGGLE_FAVORITE_ALBUM:
-      const currentAlbum: Album = state.albums.find(
-        album => album.id === action.payload
-      )
+  case TOGGLE_FAVORITE_ALBUM:
+    const currentAlbum: Album | undefined = state.albums.find(
+      album => album.id === action.payload
+    )
+
+    if (currentAlbum) {
       const modifiedAlbum = {
         ...currentAlbum,
         favorite: !currentAlbum.favorite
@@ -51,14 +52,17 @@ const albumReducer = (state = INITIAL_STATE, action) => {
       )
 
       return { ...state, albums: modifiedAlbums }
+    }
 
-    case SET_PHOTOS:
-      const photos = action.payload
+    return state
 
-      return { ...state, photos }
+  case SET_PHOTOS:
+    const photos = action.payload
 
-    default:
-      return state
+    return { ...state, photos }
+
+  default:
+    return state
   }
 }
 
