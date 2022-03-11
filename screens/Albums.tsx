@@ -6,6 +6,7 @@ import { fetchAlbums } from '../store/album/action'
 import { albumStyles } from '../styles/albumStyles'
 import AlbumList from '../components/AlbumList'
 
+// @ts-ignore
 const Albums = props => {
   const dispatch = useDispatch()
   useEffect(() => {

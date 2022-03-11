@@ -16,7 +16,7 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "strictPropertyInitialization": false,
-    "no-unused-vars": false
+    "noUnusedLocals": false
   },
   "extends": "expo/tsconfig.base"
 }
